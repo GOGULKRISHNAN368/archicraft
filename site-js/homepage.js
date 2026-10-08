@@ -1,0 +1,198 @@
+const mobileBreakpoint = 767;
+
+export function homepage() {
+    const homepageBody = document.querySelector('.homepage_body');
+
+    if (homepageBody) {
+        const heroSection = document.querySelector('.section_hero');
+        const heroCards = document.querySelectorAll('.section_hero_followup_content_card');
+
+        if (heroCards.length > 0 && heroSection && window.innerWidth > mobileBreakpoint) {
+
+            gsap.set('.section_hero_followup_content', {
+                top: '50svh'
+            });
+
+            // DEKSTOP & TABLET Hero Interaction
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: heroSection,
+                    // pin: heroSection.querySelector('.header30_background-image-wrapper'),
+                    // end: 'bottom top',
+                    pin: true,
+                    pinSpacing: false,
+                    start: 'top top',
+                    // end: '+=180%',
+                    end: '+=100%',
+                    scrub: 1
+                }
+            })
+                .to('.hero_image-overlay-layer', {
+                    delay: .125,
+                    opacity: .8,
+                    duration: 1,
+                    ease: 'power2.out'
+                })
+                .to('.section_hero_followup_content', {
+                    top: '0svh',
+                    duration: .2
+                }, "<")
+                .to('.hero_main_content', {
+                    delay: .08,
+                    opacity: 0,
+                    filter: 'blur(5px)',
+                    duration: 1,
+                    ease: 'power2.out'
+                }, "<")
+                .fromTo(heroCards[1], {
+                    yPercent: 180
+                },{
+                    yPercent: -30,
+                    duration: 1.25,
+                    ease: 'none'
+                }, "<")
+                .fromTo(heroCards[0], {
+                    yPercent: 180
+                },{
+                    yPercent: -45,
+                    duration: 1.25,
+                    ease: 'none'
+                }, "<")
+                .fromTo(heroCards[2], {
+                    yPercent: 180
+                },{
+                    yPercent: -15,
+                    duration: 1.25,
+                    ease: 'none'
+                }, "<");
+        } else if (heroCards.length > 0 && heroSection && window.innerWidth <= mobileBreakpoint) {
+            // MOBILE Hero Interaction
+
+            // Hero content fadef-out
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: heroSection,
+                    pin: '.hero_main_content',
+                    start: 'top top',
+                    end: 'bottom 25%',
+                    pinSpacing: false,
+                    scrub: 1
+                }
+            })
+                .to('.hero_image-overlay-layer', {
+                    delay: .05,
+                    opacity: .8,
+                    duration: .8,
+                    ease: 'none'
+                })
+                .to('.hero_main_content', {
+                    // delay: .08,
+                    opacity: 0,
+                    // filter: 'blur(5px)', // removed blur for better mobile performance
+                    duration: .25,
+                    ease: 'none'
+                }, "<");
+
+            // Card Highlight
+            heroCards.forEach((card) => {
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 62%',
+                        end: 'top 16%',
+                        scrub: false,
+                        onEnter: () => {
+                            card.classList.add("active");
+                        },
+                        onLeave: () => {
+                            card.classList.remove("active");
+                        },
+                        onEnterBack: () => {
+                            card.classList.add("active");
+                        },
+                        onLeaveBack: () => {
+                            card.classList.remove("active");
+                        }
+                    }
+                });
+            });
+
+        }
+
+        // Waterfall section
+        const waterfallBlocks = document.querySelectorAll('.waterfall_text_block');
+        if (window.innerWidth > 991) {
+            waterfallBlocks.forEach((block) => {
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: block,
+                        start: 'top 55%',
+                        scrub: false
+                    }
+                }).from(block.querySelector('.waterfall-number'), {
+                    opacity: 0,
+                    xPercent: -20,
+                    duration: .5,
+                    ease: 'power2.out'
+                }).from(block.querySelectorAll('.waterfall_text_container > div'), {
+                    opacity: 0,
+                    delay: .2,
+                    xPercent: -20,
+                    stagger: .1,
+                    duration: .5,
+                    ease: 'power2.out'
+                }, "<")
+                    .fromTo(block.querySelector('.waterfall_text_block_line_container'), {
+                        height: "0%",
+                        width: "1px"
+                    }, {
+                        height: "100%",
+                        width: "1px",
+                        duration: .45,
+                        delay: .25,
+                        ease: 'none'
+                    }, "<")
+                    .fromTo(block.querySelector('.waterfall_text_block_line_container'), {
+                        width: "1px"
+                    }, {
+                        width: "100%",
+                        delay: .45,
+                        duration: 1,
+                        ease: 'power2.out'
+                    }, "<");
+            });
+        } else {
+            waterfallBlocks.forEach((block) => {
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: block,
+                        start: 'top 55%',
+                        scrub: false
+                    }
+                }).from(block.querySelector('.waterfall-number'), {
+                    opacity: 0,
+                    yPercent: -20,
+                    duration: .5,
+                    ease: 'power2.out'
+                }).from(block.querySelectorAll('.waterfall_text_container > div'), {
+                    opacity: 0,
+                    delay: .2,
+                    yPercent: -20,
+                    stagger: .1,
+                    duration: .5,
+                    ease: 'power2.out'
+                }, "<")
+                    .fromTo(block.querySelector('.waterfall_text_block_svg_container.hide-desktop'), {
+                        height: "0%",
+                        width: "1px"
+                    }, {
+                        height: "100%",
+                        width: "1px",
+                        duration: .45,
+                        delay: .25,
+                        ease: 'none'
+                    }, "<");
+            });
+        }
+    }
+}

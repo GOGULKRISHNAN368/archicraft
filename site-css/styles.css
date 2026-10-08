@@ -1,0 +1,551 @@
+@import url('menu.css');
+@import url('form.css');
+@import url('swiper.css');
+@import url('faqs.css');
+
+/* Text selection highlight */
+::selection {
+    background-color: #B65234;
+    color: white;
+}
+
+::-moz-selection {
+    background-color: #B65234;
+    color: white;
+}
+
+/*
+*   HERO CONTENT
+*/
+.hero_canvas_container {
+    width: 100vw;
+    height: 100svh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.section_hero.hp_section_hero {
+    min-height: 180svh;
+}
+ 
+
+.section_hero_followup_content_card .for-living-display-text {
+    position: absolute;
+    transform: translate(-1rem, 0);
+    left: unset;
+    right: -6.25rem;
+}
+
+.section_hero_followup_content_card .for-living-display-text:nth-child(1) {
+    transform: translate(1rem, 0);
+    left: -4rem;
+}
+
+.for_living_feat_tag_container_inner {
+    transform: translate(0rem, 0);
+}
+
+.section_hero_followup_content_card:hover .for_living_feat_tag_container_inner,
+.section_hero_followup_content_card.active .for_living_feat_tag_container_inner {
+    transform: translate(-1.25rem, 0);
+}
+
+.section_hero_followup_content_card:hover .for-living-display-text,
+.section_hero_followup_content_card.active .for-living-display-text {
+    opacity: 1;
+    transform: translate(0rem, 0);
+}
+
+@media screen and (max-width: 767px) {
+    .section_hero_followup_content_card.active {
+        max-width: 100%;
+        aspect-ratio: 345 / 263;
+    }
+}
+
+/* Archicraft wordmark: same display family as the original brand treatment. */
+.archicraft-brand {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    font-family: Ppfragment, Verdana, sans-serif;
+    font-size: 1.42rem;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.archicraft-brand-dark {
+    color: #1e1e1e;
+}
+
+.archicraft-brand-footer {
+    font-size: clamp(2.4rem, 5vw, 5.4rem);
+    letter-spacing: -0.06em;
+}
+
+.footer-archicraft-wordmark {
+    display: none;
+}
+
+.footer15_bottom-wrapper {
+    display: none;
+}
+
+/* India craft map markers */
+.india-map-container .italia_map_hover_container {
+    width: 6.5%;
+}
+
+.india-map-container .italia_map_hover_container.container-1 {
+    top: 28%;
+    left: 39%;
+}
+
+.india-map-container .italia_map_hover_container.container-2 {
+    top: 35%;
+    left: 32%;
+}
+
+.india-map-container .italia_map_hover_container.container-3 {
+    top: 43%;
+    left: 62%;
+}
+
+.india-map-container .italia_map_hover_container.container-4 {
+    top: 54%;
+    left: 22%;
+}
+
+.india-map-container .italia_map_hover_container.container-5 {
+    top: 65%;
+    left: 43%;
+}
+
+.india-map-container .italia_map_hover_container.container-6 {
+    top: 77%;
+    left: 36%;
+}
+
+.india-map-container .radar_lottie_container {
+    width: clamp(2.2rem, 4vw, 3.4rem);
+    height: clamp(2.2rem, 4vw, 3.4rem);
+    border: 1px solid rgba(194, 76, 32, 0.35);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 1px rgba(194, 76, 32, 0.08);
+}
+
+.india-map-container .radar_lottie_container > * {
+    display: none;
+}
+
+.india-map-container .radar_lottie_container::after {
+    content: "";
+    width: clamp(0.72rem, 1.3vw, 1.05rem);
+    height: clamp(0.72rem, 1.3vw, 1.05rem);
+    border-radius: 50%;
+    background: #c24c20;
+    box-shadow: 0 0 0 1px rgba(194, 76, 32, 0.12);
+}
+
+/*
+*   INTERACTIVE ITALY MAP
+*/
+.italia_map_hover_container .italia_map_info_container {
+    opacity: 0;
+    transform: translate(-1rem, 0);
+}
+
+.italia_map_hover_container .map_hover_trigger:hover ~ .italia_map_info_container {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Radar rings */
+.radar-ring {
+    animation: radar-pulse 4s ease-out infinite;
+}
+
+.radar-ring:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.radar-ring:nth-child(2) {
+    animation-delay: 1.25s;
+}
+
+.radar-ring:nth-child(3) {
+    animation-delay: 2.75s;
+}
+
+.radar-ring:nth-child(4) {
+    animation-delay: 3.25s;
+}
+
+@media screen and (min-width: 768px) {
+    @keyframes radar-pulse {
+        0% {
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.8;
+            border-color: #B65234;
+        }
+        100% {
+            width: 4rem;
+            height: 4rem;
+            opacity: 0;
+            border-color: #B65234;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes radar-pulse {
+        0% {
+            width: .25rem;
+            height: .25rem;
+            opacity: 0.8;
+            border-color: #B65234;
+        }
+        100% {
+            width: 2.25rem;
+            height: 2.25rem;
+            opacity: 0;
+            border-color: #B65234;
+        }
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .radar-ring {
+        animation: radar-pulse 2.5s ease-out infinite;
+    }
+
+    .radar-ring:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .radar-ring:nth-child(2) {
+        animation-delay: 1.25s;
+    }
+
+    .radar-ring:nth-child(3),
+    .radar-ring:nth-child(4) {
+        display: none;
+    }
+}
+
+/*
+*   HP SERVICES LIST
+*/
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    .waterfall_text_block_line_container {
+        max-width: calc(100% - 11rem);
+    }
+
+    .waterfall_text_block_line_container.line_2 {
+        max-width: calc(100% - 14rem);
+    }
+
+    .waterfall_text_block_line_container.line_2, .waterfall_text_block_line_container.line_3 {
+        max-width: calc(100% - 15.5rem);
+    }
+}
+
+.cta38_link-block::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -100vw;
+    height: 1px;
+    width: 200vw;
+    background-color: #0006;
+}
+
+@media screen and (max-width: 991px) {
+    .cta38_link-block::before {
+        opacity: .2;
+    }
+}
+
+
+/*
+*   BUTTONS
+*/
+/* PRIMARY */
+.button,
+.button-outline {
+    cursor: pointer;
+    transition: all .35s ease;
+}
+
+.button-outline:hover .button:not(.is-secondary),
+.button:not(.is-secondary):hover {
+    opacity: .5;
+}
+
+/* .button-outline:hover .button.is-alternate:hover,
+.button.is-alternate:hover {
+    background-color: rgba(255,255,255,.5);
+} */
+
+.button-outline:hover {
+    border-color: rgba(0,0,0,1);
+}
+
+.button-outline.is-alternate:hover {
+    border-color: rgba(255,255,255,1);
+}
+
+/* SECONDARY */
+.button.is-secondary:hover {
+    background-color: #dcdcdc;
+}
+
+.button-outline.is-secondary:hover {
+    background-color: #969696;
+}
+
+.button.is-secondary.is-alternate:hover {
+    background-color: #1A1A1A;
+}
+
+.button-outline.is-secondary.is-alternate:hover {
+    background-color: #5E5E5E;
+}
+
+.navbar .button {
+    max-height: 2.375rem;
+}
+
+
+/*
+*   SERVICES
+*/
+/* HERO SECTION */
+.header32_background-image-wrapper.overlay-reveal {
+    clip-path: polygon(25% 100%, 75% 100%, 75% 100%, 25% 100%);
+    transform-origin: center center;
+}
+
+
+/* STEPS SECTION */
+.pj_step_context_container {
+    opacity: 0;
+}
+
+.step-row.active {
+    opacity: 1;
+    position: relative;
+}
+
+.gallery6_item-wrapper .gallery6_image {
+    transition: opacity .3s ease;
+}
+
+.gallery6_item-wrapper:hover .gallery6_image {
+    opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+    .step-row.mobile-hidden {
+        opacity: 0;
+    }
+
+    .pj_step_context_container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.25rem;
+        height: 10rem;
+        width: 100vw;
+        background: #080e00;
+        background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(8, 14, 0, 1) 40%);
+        z-index: 0;
+    }
+}
+
+.step-row.active .trace {
+    width: 1.5rem;
+}
+
+.pj_step_desc.active {
+    opacity: 1;
+}
+
+
+/*
+*   WORKS
+*/
+.blog12_item-link:hover img {
+    transform: scale(1.1);
+}
+
+.see-more-text-container {
+    opacity: 0;
+}
+
+.see-more-text-container.show {
+    opacity: 1;
+}
+
+
+.blur-overlay::before {
+    left: 0;
+    -webkit-mask-image: linear-gradient(90deg, black 10%, transparent 80%);
+    mask-image: linear-gradient(90deg, black 10%, transparent 80%);
+}
+
+.blur-overlay::after {
+    right: 0;
+    -webkit-mask-image: linear-gradient(270deg, black 10%, transparent 80%);
+    mask-image: linear-gradient(270deg, black 10%, transparent 80%);
+}
+
+.blur-overlay::before,
+.blur-overlay::after {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 2.5rem;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+.hero-overlay-svg-mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6; /* Should be higher than .hero_image-plant-overlay-layer */
+}
+
+.hero_image-plant-overlay-layer {
+    mask: url(#heroCircleMask);
+    -webkit-mask: url(#heroCircleMask);
+}
+
+.hero-overlay-svg-mask {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#heroCircleFade {
+    width: 70vw;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero_image-plant-overlay-layer {
+    mask: url(#heroCircleMask);
+    -webkit-mask: url(#heroCircleMask);
+    opacity: 1;
+    mix-blend-mode: overlay;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 991px) {
+    #heroCircleFade {
+        width: 400px;
+    }
+}
+
+
+/*
+*   RICH TEXT HEADINGS
+*/
+
+.rich-text-legal h1 {
+    visibility: hidden;
+}
+
+.rich-text-legal h2,
+.rich-text-legal h3,
+.rich-text-legal h4,
+.rich-text-legal h5,
+.rich-text-legal h6 {
+    font-family: var(--_typography---font-styles--heading);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.rich-text-legal h2 {
+    letter-spacing: 0;
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.rich-text-legal h3 {
+    letter-spacing: 0;
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.rich-text-legal h4 {
+    font-size: 2rem;
+    line-height: 1.3;
+}
+
+.rich-text-legal h5 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+@media screen and (max-width: 991px) {
+    .rich-text-legal h2 {
+        font-size: 2.75rem;
+    }
+
+    .rich-text-legal h3 {
+        font-size: 2.25rem;
+    }
+
+    .rich-text-legal h4 {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .rich-text-legal h2,
+    .rich-text-legal h3,
+    .rich-text-legal h4,
+    .rich-text-legal h5,
+    .rich-text-legal h6 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .rich-text-legal h2 {
+        font-size: 2rem;
+    }
+
+    .rich-text-legal h3 {
+        font-size: 1.5rem;
+    }
+
+    .rich-text-legal h4 {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+
+    .rich-text-legal h5 {
+        font-size: 1.25rem;
+    }
+}
