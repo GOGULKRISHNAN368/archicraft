@@ -122,6 +122,29 @@ function routeWithoutLocale(pathname) {
   return normalized.startsWith('/ta/') ? normalized.slice(3) : normalized;
 }
 
+function applyHomepageThanjavurRebrand(markup) {
+  const detailImage = '696a99fdabc03596762256a7/thanjavur-brihadisvara-detail.png';
+
+  return markup
+    .replaceAll('From Milan, Since 2010', 'From Thanjavur, Rooted in Craft')
+    .replace(
+      /<img\b(?=[^>]*\bclass=["']content1_image["'])[^>]*>/i,
+      `<img width="415" sizes="(max-width: 479px) 100vw, (max-width: 991px) 49vw, 415px" alt="Detailed granite carvings and the vimana of Brihadisvara Temple in Thanjavur" src="${detailImage}" loading="lazy" class="content1_image">`,
+    )
+    .replace(
+      'We understand the poetry of your design, the proportions, textures and light behind every line.',
+      'We draw from the architectural poetry of Thanjai Periya Kovil—the proportion, texture and light held in every carved line.',
+    )
+    .replace(
+      'We deliver the engineering with discipline: one partner, one touchpoint, full responsibility.',
+      'We carry that discipline into every interior: one partner, one touchpoint, full responsibility.',
+    )
+    .replace(
+      'Made in India by master artisans, our work protects your vision, your timelines and your reputation.',
+      'Made in India by master artisans, our work transforms the spirit of South Indian craftsmanship into contemporary spaces with precision, warmth and permanence.',
+    );
+}
+
 function rewriteInternalUrl(value, locale = 'en') {
   if (!value || /^(?:#|\/|https?:|mailto:|tel:|data:|javascript:)/i.test(value)) {
     return value;
@@ -218,7 +241,10 @@ function translateTamil(markup) {
 }
 
 export function prepareMarkup(markup, locale = 'en', currentPath = '/') {
-  const body = markup.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || markup;
+  const pageMarkup = routeWithoutLocale(currentPath) === '/'
+    ? applyHomepageThanjavurRebrand(markup)
+    : markup;
+  const body = pageMarkup.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] || pageMarkup;
 
   const prepared = body
     .replace(/<script\b[\s\S]*?<\/script>/gi, '')
