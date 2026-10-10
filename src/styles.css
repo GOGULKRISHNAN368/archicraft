@@ -1,0 +1,46 @@
+@import url('../696a99fdabc03596762256a7/css/for-living.webflow.shared.b9789a8aa.min.css');
+@import url('../npm/swiper@11/swiper-bundle.min.css');
+@import url('../lenis@1.3.4/dist/lenis.css');
+@import url('../site-css/styles.css');
+
+:root {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  background: #161616;
+}
+
+html[lang='ta'],
+html[lang='ta'] body {
+  font-family: 'Nirmala UI', 'Noto Sans Tamil', 'Instrument Sans', Arial, sans-serif;
+}
+
+body {
+  min-width: 320px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+}
+
+.react-page {
+  min-height: 100vh;
+}
+
+.react-body.lock-viewport {
+  overflow: hidden;
+}
+
+.preloader {
+  transition: opacity 0.5s ease;
+}
+
+.form-has-errors input:invalid,
+.form-has-errors textarea:invalid,
+.form-has-errors select:invalid {
+  border-color: #b65234;
+}

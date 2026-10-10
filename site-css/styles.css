@@ -333,6 +333,14 @@
     transform-origin: center center;
 }
 
+/* Do not show the fixed category-hover photos on the Services page. */
+.section_cta38 .cta38_link-image-wrapper {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 
 /* STEPS SECTION */
 .pj_step_context_container {

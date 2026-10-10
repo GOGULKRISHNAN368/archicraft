@@ -1,21 +1,21 @@
-# Archicraft
+# Archicraft React
 
-Static website for Archicraft.
-
-## Requirements
-
-- Python 3
+React/Vite conversion of the Archicraft site. The existing exported assets and page content are reused through a single React entry with client-side routes for the English and Italian experiences.
 
 ## Run locally
 
-Open PowerShell in the project folder and run:
-
 ```powershell
-python serve.py
+npm install
+npm run dev
 ```
 
-Then open [http://127.0.0.1:5500/](http://127.0.0.1:5500/) in your browser.
+Open the URL printed by Vite, usually `http://127.0.0.1:5173/`.
 
-The server redirects the default `index.html` entry point to `index.htm`.
+## Build for production
 
-To stop the server, press `Ctrl+C` in the PowerShell window.
+```powershell
+npm run build
+npm run preview
+```
+
+The build copies the exported image assets into `dist/` and serves all site routes from the React entry point.
